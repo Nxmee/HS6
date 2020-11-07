@@ -23,12 +23,20 @@ class Colours extends Component {
             },
         ]
     }
+    changeColour = (id, colour) => {
+        console.log(colour)
+        this.setState({colours: this.state.colours.map(colour => {
+            if(colour.id === id) {
+                colour.colour = colour;
+            }
+        }) })
+    }
 
     render() {
         return (
             <div style={{display: 'flex', alignItems: 'center'}}>
             {this.state.colours.map((colour) => (
-        <ColourBox key={colour.id} colour={colour} />
+        <ColourBox key={colour.id} colour={colour} changeColour={this.changeColour}/>
         ))}
         </div>
         

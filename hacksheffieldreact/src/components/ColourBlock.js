@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 export class ColourBlock extends Component {
     state = {
-        colour:''
+        colour:'#FFFFFF'
     }
 
     getstyle = () => {
@@ -19,20 +19,20 @@ export class ColourBlock extends Component {
     }
     getinputstyle = () => {
         return {
-              padding:'5px'  
+              padding:'5px', 
+              border: 'none'
         }
     }
-    onChange = (e) => this.setState({title: e.target.value});
+    onChange = (e) => this.setState({colour: e.target.value});
 
     render() {
-        return (
+        return (    
             <div style={this.getstyle()}>
                 <input style={this.getinputstyle()}
-                type='text'
+                type='color'
                 name='colour'
-                placeholder={this.props.colour.colour}
                 value={this.state.colour}
-                onchange={this.onChange}
+                onChange={this.onChange}
                 />
             </div>
         )

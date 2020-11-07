@@ -35,11 +35,10 @@ export class ColourBox extends Component {
             alignItems: 'center'
         }
     }
-
     render() {
         return (
             <div style={this.getouterstyle()}>
-                <ColourBlock colour={this.props.colour}/>
+                <ColourBlock colour={this.props.colour} changeColour={this.props.changeColour}/>
                 <div style={this.getinnerstyle()}>
                     <p>{this.props.colour.location}</p>
                 </div>
