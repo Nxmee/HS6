@@ -9,8 +9,13 @@ const readline = require('readline').createInterface({
   output: process.stdout
 });
 
-readline.question('What website would you like to scrape?', url => {
+readline.question('What website would you like to scrape? ', url => {
+	if(url == ""){
+		url = "https://nxmee.com";
+	}
   console.log(`Test Scraping ${url}, now passing off to website scraper class!`);
-  scraper.basicScrape(url);
+  scraper.basicScrape(url,10,function(){
+  	console.log("\nScrape Calledback!\nBasic Scrape finished!\n\n");
+  });
   readline.close();
 });
