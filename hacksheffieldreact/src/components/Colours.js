@@ -1,3 +1,4 @@
+//handles all the UI regarding colours, contains the colour states
 import React, {Component} from 'react';
 import ColourBox from './ColourBox';
 
