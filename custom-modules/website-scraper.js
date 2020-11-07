@@ -80,6 +80,10 @@ cssFilter(inCSS ,inJsonCSS, callback){
 		console.log(selector.keys());
 	});
 
+	for (var i = 0; i < Things.length; i++) {
+		Things[i]
+	}
+
 	callback({css: inCss, json: outJsonCSS});
 }
 
