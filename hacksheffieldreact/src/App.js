@@ -1,9 +1,11 @@
+import React, {Component} from 'react';
+import Colours from './components/Colours';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>App</h1>
+      <Colours/>
     </div>
   );
 }
