@@ -23,17 +23,22 @@ export class ColourBlock extends Component {
               border: 'none'
         }
     }
-    onChange = (e) => this.setState({colour: e.target.value});
+    onChange = (e) => {
+        this.setState({colour: e.target.value});
+        this.props.changeColour(this.props.colour.id, this.state.colour);
+    }
 
     render() {
         return (    
             <div style={this.getstyle()}>
+                <form>
                 <input style={this.getinputstyle()}
                 type='color'
                 name='colour'
                 value={this.state.colour}
                 onChange={this.onChange}
                 />
+                </form>
             </div>
         )
     }

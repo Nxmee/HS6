@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     //where things go for the page  
-    <div className="App">
+    <div className="App" style={{display: 'flex', alignItems: 'center'}}>
       <Colours/>
     </div>
   );
