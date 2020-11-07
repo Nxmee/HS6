@@ -76,15 +76,42 @@ basicScrape(url, x = 10, callback){
 cssFilter(inCSS ,inJsonCSS, callback){
 	var outJsonCSS = {};
 
-	inJsonCSS.forEach(function(selector){
-		console.log(selector.keys());
-	});
+	var lookupMap = {};
 
-	for (var i = 0; i < Things.length; i++) {
-		Things[i]
+	for (const [keyOne, valueOne] of Object.entries(inJsonCSS)) {
+		//WebsiteScraper.getInstance().debugOut(`Checking ${keyOne}: ${valueOne}`);
+		var tmpVar = {};
+		for (const [keyTwo, valueTwo] of Object.entries(valueOne)) {
+			var tmpKey = keyTwo.toLowerCase();
+			if(tmpKey == "color" || tmpKey == "background" || tmpKey == "background-color"){
+				if(valueTwo.includes("#")){
+					tmpVar[keyTwo] = valueTwo;
+				}
+			}
+		}
+		if(Object.keys(tmpVar).length > 0){
+
+
+
+		if(keyOne.trim() != ""){
+			var lookedup = lookupMap[(new CustomJsonCSS()).toCSS(tmpVar)];
+
+			if(lookedup != undefined){
+				WebsiteScraper.getInstance().debugOut("Used Lookup map to redude elements: "+ lookedup);
+				outJsonCSS[lookedup+","+keyOne] = outJsonCSS[lookedup]
+				delete outJsonCSS[lookedup];
+				lookupMap[(new CustomJsonCSS()).toCSS(tmpVar)] = lookedup+","+keyOne;
+			}else{
+				outJsonCSS[keyOne] = tmpVar;
+				lookupMap[(new CustomJsonCSS()).toCSS(tmpVar)] = keyOne;
+			}
+		}
+		}
 	}
+	var val = Object.keys(outJsonCSS).length;
+	this.debugOut(`There are ${val} CSS elements with colour attributes`);
 
-	callback({css: inCss, json: outJsonCSS});
+	callback({css: (new CustomJsonCSS()).toCSS(outJsonCSS), json: outJsonCSS});
 }
 
 
