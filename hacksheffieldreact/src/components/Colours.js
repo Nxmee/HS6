@@ -26,9 +26,9 @@ class Colours extends Component {
 
     render() {
         return (
-            <div style={{display: 'flex'}}>
+            <div style={{display: 'flex', alignItems: 'center'}}>
             {this.state.colours.map((colour) => (
-        <ColourBox key={colour.id} colour={colour}/>
+        <ColourBox key={colour.id} colour={colour} />
         ))}
         </div>
         
