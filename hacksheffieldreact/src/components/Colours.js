@@ -25,22 +25,20 @@ class Colours extends Component {
     }
     changeColour = (id, colour) => {
         console.log(colour)
-        this.setState({colours: this.state.colours.map(colour => {
-            if(colour.id === id) {
-                colour.colour = colour;
+        this.setState({colours: this.state.colours.map((iteratecolour) => {
+            console.log(iteratecolour.id)
+            if(iteratecolour.id === id) {
+                iteratecolour.colour = colour;
             }
+            return iteratecolour
         }) })
     }
 
     render() {
-        return (
-            <div style={{display: 'flex', alignItems: 'center'}}>
-            {this.state.colours.map((colour) => (
-        <ColourBox key={colour.id} colour={colour} changeColour={this.changeColour}/>
-        ))}
-        </div>
-        
-        )
+        console.log(this.state.colours);
+        return this.state.colours.map((colourmap) => (
+            <ColourBox key={colourmap.id} colour={colourmap} changeColour={this.changeColour}/>
+            ));
     }
 }
 
