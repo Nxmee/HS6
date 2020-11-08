@@ -80,6 +80,8 @@ class Colours extends Component {
         }) })
     }
 
+    setColours = (newColours) => this.setState({colours: newColours})
+
     delColour = (id) => {
         this.setState({colours: [...this.state.colours.filter(colour => colour.id !== id)]
         });
