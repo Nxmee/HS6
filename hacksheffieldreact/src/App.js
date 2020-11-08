@@ -78,7 +78,10 @@ export class App extends Component {
     }) })
     }
 
-  setColours = (newColours) => this.setState({colours: newColours})
+  setColours = (newColours) => {
+    this.setState({colours: newColours});
+    this.forceUpdate();
+  }
 
   delColour = (id) => {
     this.setState({colours: [...this.state.colours.filter(colour => colour.id !== id)]
