@@ -42,8 +42,6 @@ class CustomJsonCSS {
 	                            	}
                             	}
 
-
-
                                 output[lastKey][style[0].trim().replace(/^\"|\"$/g, '')] = this._trimSemiColon(style[1].trim().replace(/^\"|\"$/g, '')); //for new style
                             }
                         });

@@ -12,6 +12,8 @@ export class SelectSite extends Component {
 
         //when you have the colours object call:
         //this.props.setColours.bind(this, colours)
+        console.log("LOCATION: "+document.location.href);
+        console.log("URL: "+this.state.website);
     }
 
     onChange = (e) => this.setState({[e.target.name]: e.target.value});
