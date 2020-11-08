@@ -36,7 +36,6 @@ export class ColourBox extends Component {
         }
     }
     render() {
-        const id = this.props.colour.id
         return (
             <div style={this.getouterstyle()}>
                 <ColourBlock colour={this.props.colour} changeColour={this.props.changeColour}/>

@@ -8,7 +8,7 @@ class Colours extends Component {
         colours: [
             {
                 id: 0,
-                location: 'main',
+                location: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut mi at tellus mattis laoreet. Integer ut elementum ipsum. Curabitur pulvinar sagittis faucibus. Phasellus accumsan imperdiet odio. Mauris a mauris ante. Donec interdum pretium porta. Proin fermentum eu leo at accumsan.',
                 colour: '#FF0F00'
             },
             {
@@ -54,7 +54,7 @@ class Colours extends Component {
     render() {
         return this.state.colours.map((colourmap) => (
             <ColourBox key={colourmap.id} colour={colourmap} changeColour={this.changeColour}
-            delColour={this.delColour}/>
+            delColour={this.delColour} style={{flex:'0 1 auto'}} />
             ));
     }
 }
