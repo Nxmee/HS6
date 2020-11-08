@@ -20,6 +20,7 @@ readline.question('What website would you like to scrape? ', url => {
 
   	fs.writeFileSync('./'+name+'.css', res["css"]);
 	fs.writeFileSync('./'+name+'.json', JSON.stringify(res["json"]));
+	fs.writeFileSync('./'+name+'-chrisColours.json', JSON.stringify(res["chrisColours"]));
 
   	console.log("\nScrape Calledback!\nBasic Scrape finished!\n\n");
   });

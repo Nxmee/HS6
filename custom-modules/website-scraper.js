@@ -121,9 +121,8 @@ cssFilter(inCSS ,inJsonCSS, callback){
 		});
 		rNumber++;
 		}
-	}
-
-	callback({css: (new CustomJsonCSS()).toCSS(outJsonCSS), json: outJsonCSS, chrisColours: chrisColours});
+	
+	callback({css: (new CustomJsonCSS()).toCSS(outJsonCSS), json: outJsonCSS, chrisColours: chrisColour});
 }
 
 

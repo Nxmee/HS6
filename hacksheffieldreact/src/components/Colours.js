@@ -35,6 +35,7 @@ class Colours extends Component {
     }
 
     render() {
+        
         console.log(this.state.colours);
         return this.state.colours.map((colourmap) => (
             <ColourBox key={colourmap.id} colour={colourmap} changeColour={this.changeColour}/>
