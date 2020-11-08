@@ -83,7 +83,7 @@ cssFilter(inCSS ,inJsonCSS, callback){
 		var tmpVar = {};
 		for (const [keyTwo, valueTwo] of Object.entries(valueOne)) {
 			var tmpKey = keyTwo.toLowerCase();
-			if(tmpKey == "color" || tmpKey == "background" || tmpKey == "background-color"){
+			if(tmpKey == "background" || tmpKey == "background-color"){
 				if(valueTwo.includes("#")){
 					tmpVar[keyTwo] = valueTwo;
 				}
@@ -110,8 +110,20 @@ cssFilter(inCSS ,inJsonCSS, callback){
 	}
 	var val = Object.keys(outJsonCSS).length;
 	this.debugOut(`There are ${val} CSS elements with colour attributes`);
+	var chrisColour = [];
+	var rNumber = 0;
+	for (const [keyOne, valueOne] of Object.entries(outJsonCSS)) {
+		const [keyTwo, valueTwo] = Object.entries(valueOne)[0];
+		chrisColour.push({
+			id: rNumber,
+            location: keyOne,
+            colour: valueTwo
+		});
+		rNumber++;
+		}
+	}
 
-	callback({css: (new CustomJsonCSS()).toCSS(outJsonCSS), json: outJsonCSS});
+	callback({css: (new CustomJsonCSS()).toCSS(outJsonCSS), json: outJsonCSS, chrisColours: chrisColours});
 }
 
 
