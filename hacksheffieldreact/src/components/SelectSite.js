@@ -8,6 +8,8 @@ export class SelectSite extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         //insert website loading code here using this.state.website as the URL
+        console.log("LOCATION: "+document.location.href);
+        console.log("URL: "+this.state.website);
     }
 
     onChange = (e) => this.setState({[e.target.name]: e.target.value});
