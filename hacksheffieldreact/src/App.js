@@ -37,6 +37,7 @@ export class App extends Component {
     gThis.forceUpdate();
 }
 
+
   delColour = (id) => {
     this.setState({colours: [...this.state.colours.filter(colour => colour.id !== id)]
     });
