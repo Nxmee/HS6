@@ -2,9 +2,6 @@
 import React, { Component } from 'react'
 
 export class ColourBlock extends Component {
-    state = {
-        colour:'#FFFFFF'
-    }
 
     getstyle = () => {
         return {
@@ -24,8 +21,7 @@ export class ColourBlock extends Component {
         }
     }
     onChange = (e) => {
-        this.setState({colour: e.target.value});
-        this.props.changeColour(this.props.colour.id, this.state.colour);
+        this.props.changeColour(this.props.colour.id, e.target.value);
     }
 
     render() {
@@ -35,7 +31,7 @@ export class ColourBlock extends Component {
                 <input style={this.getinputstyle()}
                 type='color'
                 name='colour'
-                value={this.state.colour}
+                value={this.props.colour.colour}
                 onChange={this.onChange}
                 />
                 </form>
