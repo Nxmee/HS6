@@ -10,7 +10,7 @@ export class ColourBox extends Component {
             display: 'flex',
             flexDirection: 'row',
             height:'20vh',
-            width: '50%;',
+            width: '50%',
             margin: 'auto',
             justifyContent: 'flex-start',
             alignContent: 'stretch',
@@ -25,7 +25,7 @@ export class ColourBox extends Component {
         return {
             backgroundColor: '#222222', 
             height:'20vh',
-            width: '50%;',
+            width: '50%',
             margin: 'auto',
             color:'#FFFFFF',
             textAlign: 'center',
@@ -36,12 +36,14 @@ export class ColourBox extends Component {
         }
     }
     render() {
+        const id = this.props.colour.id
         return (
             <div style={this.getouterstyle()}>
                 <ColourBlock colour={this.props.colour} changeColour={this.props.changeColour}/>
                 <div style={this.getinnerstyle()}>
                     <p>{this.props.colour.location}</p>
                 </div>
+                <button onClick={this.props.delColour.bind(this, this.props.colour.id)} style={btnstyle}>x</button>
             </div>
 
         )
@@ -51,6 +53,17 @@ export class ColourBox extends Component {
 //PropTypes 
 ColourBox.propTypes = {
     colour: PropTypes.object.isRequired
+}
+
+const btnstyle = {
+    background: '#333333',
+    color:'#fff',
+    border:'none',
+    padding:'5px 8px',
+    borderRadius:'50%',
+    cursor:'pointer',
+    flex: '0 1 auto'
+
 }
 
 export default ColourBox;
