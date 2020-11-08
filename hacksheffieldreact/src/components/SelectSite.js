@@ -7,7 +7,11 @@ export class SelectSite extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        
         //insert website loading code here using this.state.website as the URL
+
+        //when you have the colours object call:
+        //this.props.setColours.bind(this, colours)
     }
 
     onChange = (e) => this.setState({[e.target.name]: e.target.value});
