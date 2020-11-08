@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import Colours from './components/Colours';
 import SelectSite from './components/SelectSite';
+import Export from './components/Export';
 import Header from './components/layout/header';
 import './App.css';
 
@@ -60,6 +61,11 @@ export class App extends Component {
     {"id":50,"location":"#surveyResults .surveySwatch","colour":"#999 none repeat scroll 0%"}]
   }
 
+  exportCSS = () => {
+    //add code to export CSS here
+    console.log('exporting CSS')
+  }
+
   changeColour = (id, colour) => {
     this.setState({colours: this.state.colours.map((iteratecolour) => {
         console.log(iteratecolour.id)
@@ -84,6 +90,7 @@ export class App extends Component {
         <div className="container">
           <Header/>
           <SelectSite setColours={this.setColours}/>
+          <Export exportCSS={this.exportCSS}/>
           <div className="Colours" style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
             <Colours colours={this.state.colours} delColour={this.delColour} changeColour={this.changeColour}/>
           </div>
