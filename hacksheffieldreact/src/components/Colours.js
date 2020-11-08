@@ -1,6 +1,7 @@
 //handles all the UI regarding colours, contains the colour states
 import React, {Component} from 'react';
 import ColourBox from './ColourBox';
+let scraper =  require('../website-scraper')
 
 class Colours extends Component {
     state={
@@ -30,12 +31,11 @@ class Colours extends Component {
 
     // Good luck have fun :D
     
-    //scraper.basicScrape(url,10,function(res){
-    //var colours = res["chrisColours"];
-
+    loadsite = (url) => scraper.basicScrape(url,10,function(res){
+        this.setState({colours: res["chrisColours"]});
     //HERE IS YOUR MOTHER FUCKING OBJECT NOW MAKE IT WORK
 
-    //}
+    })
     changeColour = (id, colour) => {
         console.log(colour)
         this.setState({colours: this.state.colours.map((iteratecolour) => {
