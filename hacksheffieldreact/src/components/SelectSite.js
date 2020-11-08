@@ -4,20 +4,21 @@ export class SelectSite extends Component {
     state= {
         website: ''
     }
-
+    // var gThis = this;
     onSubmit = (e) => {
+        var gThis = this;
         e.preventDefault();
         
         //insert website loading code here using this.state.website as the URL
-
+         
         //when you have the colours object call:
         fetch("/colours.json?url="+btoa(this.state.website)).then(res => {
             return res.json();
         }).then(t => {
             console.log(t.colours);
-            this.props.setColours.bind(this, t.colours);
+            gThis.props.setColours(gThis,t.colours);
         });
-
+        console.log(this.props);
         //this.props.setColours.bind(this, colours)
         console.log("LOCATION: "+document.location.href);
         console.log("URL: "+this.state.website);

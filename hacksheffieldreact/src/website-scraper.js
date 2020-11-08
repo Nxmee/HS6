@@ -4,6 +4,8 @@ let jsdom = require("jsdom");
 let CustomJsonCSS = require('./cssToJson');
 let { JSDOM } = jsdom;
 let syncRequest = require('sync-request');
+let uuid = require('uuid');
+
 class WebsiteScraper {
 // This class will be responsible for getting the HTML DOM, then CSS files.
 // Andrew Aubury
@@ -115,7 +117,7 @@ cssFilter(inCSS ,inJsonCSS, callback){
 	for (const [keyOne, valueOne] of Object.entries(outJsonCSS)) {
 		const [, valueTwo] = Object.entries(valueOne)[0];
 		chrisColour.push({
-			id: rNumber,
+			id: uuid.v4(),
             location: keyOne,
             colour: valueTwo
 		});
