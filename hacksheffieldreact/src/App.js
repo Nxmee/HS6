@@ -9,7 +9,7 @@ function App() {
     //where things go for the page  
     <div className="App">
       <Header/>
-      <div className="Colours" style={{display: 'flex', alignItems: 'center'}}>
+      <div className="Colours" style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
         <Colours/>
       </div>
     </div>

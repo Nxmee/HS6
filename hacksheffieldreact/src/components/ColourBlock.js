@@ -6,10 +6,11 @@ export class ColourBlock extends Component {
     getstyle = () => {
         return {
             backgroundColor: this.props.colour.colour,
-            width:'50%',
+            width:'20%',
             height:'100%',
             border: '3px solid black',
             display: 'flex',
+            flex: '0 1 20vh',
             justifyContent: 'center',
             alignItems: 'center'
         }

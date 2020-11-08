@@ -24,15 +24,18 @@ export class ColourBox extends Component {
     getinnerstyle = () => {
         return {
             backgroundColor: '#222222', 
-            height:'20vh',
-            width: '50%',
+            height:'10vh',
             margin: 'auto',
             color:'#FFFFFF',
             textAlign: 'center',
-            flex: '0 1 auto',
+            flex: '1 1 auto',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            minWidth: '0'
         }
     }
     render() {
@@ -40,7 +43,7 @@ export class ColourBox extends Component {
             <div style={this.getouterstyle()}>
                 <ColourBlock colour={this.props.colour} changeColour={this.props.changeColour}/>
                 <div style={this.getinnerstyle()}>
-                    <p>{this.props.colour.location}</p>
+                    {this.props.colour.location}
                 </div>
                 <button onClick={this.props.delColour.bind(this, this.props.colour.id)} style={btnstyle}>x</button>
             </div>
